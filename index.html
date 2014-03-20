@@ -236,11 +236,14 @@ d3.csv("ElGordo_data_vis.json", function(error, data){
   // A little coercion, since the CSV is untyped.
   data.forEach(function(d, i) {
     // bind data to variables 
+		d.index = i;
     d.alpha = +d.alpha;
     d.TSM_1 = +d.TSM_1;
     d.TSM_0 = +d.TSM_0;
     d.v_relic = +d.v_relic;
   });
+	
+
 });
 
 // (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
@@ -358,6 +361,7 @@ d3.csv("ElGordo_data_vis.json", function(error, data){
     renderAll();
   };
 
+  // this seems to be where the table is set up 
   function flightList(div) {
     var flightsByDate = nestByDate.entries(date.top(40));
 
